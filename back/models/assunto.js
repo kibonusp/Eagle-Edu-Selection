@@ -4,10 +4,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        porcentage: {
-            type: DataTypes.DOUBLE
-        },
-        curso_id: {
+        percentage: {
             type: DataTypes.INTEGER
         }
     });

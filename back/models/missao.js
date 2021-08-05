@@ -6,9 +6,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         completed: {
             type: DataTypes.BOOLEAN
-        },
-        assunto_id: {
-            type: DataTypes.INTEGER
         }
     });
     
