@@ -1,8 +1,13 @@
 const express = require("express");
 const app = express();
+const cors = require('cors');
 const db = require("./models");
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
+
+// Configuração do CORS
+app.use(cors());
+app.options('*', cors());
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -19,12 +24,14 @@ db.Assunto.hasMany(db.Missao, {
 });
 db.Missao.belongsTo(db.Assunto);
 
+// Rotas para cada tabela
 const missaoRoute = require("./routes/missao");
-const assuntoRoute = require("./routes/assunto");
-const cursoRoute = require("./routes/curso");
-
 app.use(missaoRoute);
+
+const assuntoRoute = require("./routes/assunto");
 app.use(assuntoRoute);
+
+const cursoRoute = require("./routes/curso");
 app.use(cursoRoute);
 
 db.sequelize.sync().then(() => {
