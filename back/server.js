@@ -9,13 +9,15 @@ app.use(express.json());
 
 // Relaçao One (Curso) to Many (Assunto)
 db.Curso.hasMany(db.Assunto, {
-    onDelete: 'CASCADE'
+    onDelete: 'CASCADE',
+    onUpdate: 'RESTRICT'
 });
 db.Assunto.belongsTo(db.Curso);
 
 // Relaçao One (Assunto) to Many (Missao)
 db.Assunto.hasMany(db.Missao, {
-    onDelete: 'CASCADE'
+    onDelete: 'CASCADE',
+    onUpdate: 'RESTRICT'
 });
 db.Missao.belongsTo(db.Assunto);
 
