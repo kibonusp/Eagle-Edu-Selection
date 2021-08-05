@@ -1,12 +1,12 @@
 const db = require("../models");
 
-// Cria um assunto novo para um curso
+// Cria uma missão nova para um assunto
 module.exports.newAssunto = (req, res) => {
     db.Assunto.create({
         name: req.body.name,
         percentage: parseInt(req.body.percentage),
         CursoId: parseInt(req.body.id)
-    }).then(submitedAssunto => res.send(submitedAssunto));
+    }).then(submitedMissao => res.send(submitedMissao));
 }
 
 // Retorna todos os assuntos de um determinado curso
