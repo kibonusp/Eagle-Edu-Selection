@@ -4,7 +4,7 @@ const db = require("../models");
 module.exports.newAssunto = (req, res) => {
     db.Assunto.create({
         name: req.body.name,
-        percentage: parseInt(req.body.percentage),
+        percentage: 0,
         CursoId: parseInt(req.body.id)
     }).then(submitedMissao => res.send(submitedMissao));
 }

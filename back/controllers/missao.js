@@ -4,7 +4,7 @@ const db = require("../models");
 module.exports.newMissao = (req, res) => {
     db.Missao.create({
         text: req.body.text,
-        completed: req.body.completed === 'true',
+        completed: false,
         AssuntoId: parseInt(req.body.id)
     }).then(submitedMissao => res.send(submitedMissao));
 }
