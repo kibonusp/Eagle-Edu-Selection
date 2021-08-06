@@ -1,3 +1,5 @@
 back/config/
 back/.env
 back/node_modules/
+front/node_modules/
+front/README.md
