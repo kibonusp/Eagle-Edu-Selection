@@ -17,7 +17,7 @@ function Header() {
                     </div>
                 </div>
             </div>
-            <div class="header-corner">
+            <div className="header-corner">
                 <select id="language">
                     <option value="portugues">Português</option>
                     <option value="ingles">Inglês</option>

@@ -53,6 +53,9 @@
 #language {
     border: none;
     font-size: 14px;
+    font-family: Poppins;
+    font-weight: bold;
+    color: #585858;
 }
 
 #usuario {

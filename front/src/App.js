@@ -8,7 +8,7 @@ function App() {
   return(
     <div id="app-div">
       <Header></Header>
-      <div class="paineis">
+      <div className="paineis">
         <PainelControle></PainelControle>
         <PainelAssunto></PainelAssunto>
       </div>

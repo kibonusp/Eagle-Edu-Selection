@@ -1,12 +1,31 @@
 import livro from '../assets/livro.png';
 import seta from '../assets/seta.png';
 import '../styles/PainelControle.css';
+import React, {useState, useEffect} from 'react';
 
-import React, {useState} from 'react';
+const PainelControle = () => {
 
-function PainelControle() {
+    const [cursoId, setCursoId] = useState();
+    const [cursos, setCursos] = useState();
 
-    const [curso, setCurso] = useState();
+    useEffect(() => {
+        const url = "http://localhost:3333/curso";
+
+        const fetchData = async () => {
+            try {
+                const response = await fetch(url);
+                const json = await response.json();
+                const cursos = []
+                for (let curso of json)
+                    cursos.push({id: curso.id, name: curso.name});
+                setCursos(cursos);
+            } catch (error) {
+                console.log("error", error);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     const showCursos = () => {
         document.getElementById("seta").classList.toggle("setaRotate");
@@ -15,16 +34,20 @@ function PainelControle() {
     };
 
     const selectCurso = id => {
-        if (curso === undefined) {
-            setCurso(id);
+        if (cursoId === undefined) {
+            setCursoId(id);
             document.getElementById(id).classList.toggle("selectCurso");
         }
         else {
-            document.getElementById(curso).classList.toggle("selectCurso");
-            setCurso(id);
+            document.getElementById(cursoId).classList.toggle("selectCurso");
+            setCursoId(id);
             document.getElementById(id).classList.toggle("selectCurso");
         }
-    }
+    };
+
+    let cursosJSX = "";
+    if (cursos)
+        cursosJSX = cursos.map(curso => <button id={curso.id} key={curso.id} onClick={() => selectCurso(curso.id)}>{curso.name}</button>);
 
     return(
         <div id="ctrl">
@@ -38,16 +61,11 @@ function PainelControle() {
                     <img src={seta} id="seta" alt="Seta indicando lista de cursos"></img>
                 </button>
                 <div id="content-ctrl" className="dropdown-content-ctrl">
-                    <button id="curso1" onClick={() => selectCurso("curso1")}>Curso 1</button>
-                    <button id="curso2" onClick={() => selectCurso("curso2")}>Curso 2</button>
-                    <button id="curso3" onClick={() => selectCurso("curso3")}>Curso 3</button>
+                    {cursosJSX}
                 </div>
             </div>
         </div>
     )
 }
-
-
-
 
 export default PainelControle;
