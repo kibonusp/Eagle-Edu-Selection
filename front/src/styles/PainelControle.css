@@ -1,5 +1,82 @@
 #ctrl {
     width: 15%;
-    font-family: 'Roboto';
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px;
+}
+
+.dropdown-ctrl {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.dropbtn-ctrl {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    background-color: white;
+    padding-left: 20px;
+}
+
+.dropbtn-left {
+    display: flex;
+    align-items: center;
+}
+
+p, button {
+    font-family: Poppins;
+    font-weight: bold;
+    color: #585858;
+}
+
+#livro {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+#seta {
+    height: 20px;
+    width: 20px;
+    margin-right: 30px;
+}
+
+
+.dropdown-content-ctrl {
+    display: none;
+    min-width: 160px;
+    position: relative;
+}
+
+.dropdown-content-ctrl button {
+    background-color: white;
+    margin-left: 20px;
+    padding: 12px 16px;
+    display: block;
+    color: #585858;
+    border: none;
+}
+.dropdown-content-ctrl button:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: block;
+}
+
+.setaRotate {
+    transform: rotate(90deg);
+    transition: transform 0.3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+.changeBtnColor {
+    transition: background-color 0.3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    background-color: #f1f1f1;
+}
+
+.selectCurso {
+    text-decoration: underline;
 }
