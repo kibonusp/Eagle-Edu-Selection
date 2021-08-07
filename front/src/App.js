@@ -1,17 +1,13 @@
 import Header from './components/Header';
 import PainelControle from './components/PainelControle';
-import PainelAssunto from './components/PainelAssunto';
-import Rodape from './components/Rodape';
+// import Rodape from './components/Rodape';
 import './styles/App.css'
 
 function App() {
   return(
     <div id="app-div">
       <Header></Header>
-      <div className="paineis">
-        <PainelControle></PainelControle>
-        <PainelAssunto></PainelAssunto>
-      </div>
+      <PainelControle></PainelControle>
     </div>
   )
 }

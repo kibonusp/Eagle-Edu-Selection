@@ -81,3 +81,8 @@ p, button {
 .selectCurso {
     text-decoration: underline;
 }
+
+.paineis {
+    display: flex;
+    flex: 1;
+}

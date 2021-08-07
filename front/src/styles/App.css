@@ -15,8 +15,3 @@ body {
     font-weight: bold;
     color: #585858;
 }
-
-.paineis {
-    display: flex;
-    flex: 1;
-}
