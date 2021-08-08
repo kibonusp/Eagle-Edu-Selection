@@ -1,34 +1,18 @@
 import livro from '../assets/livro.png';
 import seta from '../assets/seta.png';
 import '../styles/PainelControle.css';
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import PainelAssunto from './PainelAssunto';
 
 const PainelControle = () => {
 
-    const [cursoId, setCursoId] = useState();
+    const [cursoId, setCursoId] = useState(undefined);
     const [cursos, setCursos] = useState();
 
     useEffect(() => {
-        const url = "http://localhost:3333/curso";
-
-        const fetchData = async () => {
-            try {
-                const response = await fetch(url);
-                const json = await response.json();
-                const cursos = []
-                for (let curso of json)
-                    cursos.push({
-                        id: curso.id, 
-                        name: curso.name
-                    });
-                setCursos(cursos);
-            } catch (error) {
-                console.log("error", error);
-            }
-        };
-
-        fetchData();
+        fetch('http://localhost:3333/curso')
+        .then(response => response.json())
+        .then(data => setCursos(data));
     }, []);
 
     const showCursos = () => {
@@ -50,8 +34,11 @@ const PainelControle = () => {
     };
 
     let cursosJSX = "";
-    if (cursos)
+    let painel_assunto = "";
+    if (cursos){
         cursosJSX = cursos.map(curso => <button id={curso.id} key={curso.id} onClick={() => selectCurso(curso.id)}>{curso.name}</button>);
+        painel_assunto = <PainelAssunto cursoId={cursoId}></PainelAssunto>
+    }
 
     return(
         <div className="paineis">
@@ -70,7 +57,7 @@ const PainelControle = () => {
                     </div>
                 </div>
             </div>
-            <PainelAssunto cursoId={cursoId}></PainelAssunto>
+            {painel_assunto}
         </div>
     )
 }

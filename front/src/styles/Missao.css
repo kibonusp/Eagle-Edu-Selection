@@ -1,0 +1,24 @@
+.missaodiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    min-width: 200px;
+    max-width: 400px;
+    width: 85%;
+    padding: 0px 0px;
+    margin: 5px 0px;
+}
+
+.missaodiv p {
+    margin: 10px;
+}
+
+.missaodiv input {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 0px 10px;
+}

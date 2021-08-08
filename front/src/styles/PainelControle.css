@@ -60,6 +60,7 @@ p, button {
     color: #585858;
     border: none;
 }
+
 .dropdown-content-ctrl button:hover {
     background-color: #f1f1f1;
 }
